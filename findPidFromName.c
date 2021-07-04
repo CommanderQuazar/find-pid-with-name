@@ -1,13 +1,20 @@
+//
+// Created by Tobey Ragain (Commander_Quazar) on 7/4/2021
+//
+
+/*
+ * UNIX MACOS LINUX VERSION
+ */
+
 #include <stdio.h>
 #include <sys/types.h>
 #include <dirent.h>
 #include <stdio.h>
 #include <string.h>
-#include <io.h>
 
 #define BUF_SIZE 1024
 
-inline int strToInt(char * str)
+int strToInt(char * str)
 {
     return ((str[0]-0x30)*1000)+((str[1]-0x30)*100)+((str[2]-0x30)*10)+((str[3]-0x30));
 }
@@ -54,8 +61,8 @@ int getPidByName(char *task_name)
 
 int main()
 {
-    char task_name[] = "clion64.exe";
+    char task_name[] = "clion.sh";
 
-    printf("task name is %s", task_name);
-    getPidByName(task_name);
+    printf("task name is %s\n", task_name);
+    printf("PID: %i\n", getPidByName(task_name));
 }

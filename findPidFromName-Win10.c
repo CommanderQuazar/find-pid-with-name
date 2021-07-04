@@ -1,7 +1,11 @@
+//
+// Created by Tobey Ragain (Commander_Quazar) on 7/4/2021
+//
 
-//
-// Created by tobey on 7/4/2021.
-//
+/*
+ * WINDOWS10 VERSION
+ */
+
 
 #include <stdio.h>
 #include <windows.h>
@@ -32,7 +36,6 @@ int find_pid_win10(char * process_name)
     CloseHandle(snapshot);
     return process_pid;
 }
-
 
 int main(void)
 {
