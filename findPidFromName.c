@@ -1,16 +1,18 @@
-//
-// Created by Tobey Ragain (Commander_Quazar) on 7/4/2021
-//
-
 #include <stdio.h>
 #include <sys/types.h>
 #include <dirent.h>
 #include <stdio.h>
 #include <string.h>
+#include <io.h>
 
 #define BUF_SIZE 1024
 
-void getPidByName(char *task_name)
+inline int strToInt(char * str)
+{
+    return ((str[0]-0x30)*1000)+((str[1]-0x30)*100)+((str[2]-0x30)*10)+((str[3]-0x30));
+}
+
+int getPidByName(char *task_name)
 {
     DIR *dir;
     struct dirent *ptr;
@@ -42,18 +44,18 @@ void getPidByName(char *task_name)
 
                 //Print the name of the path (that is, the PID of the process) if the file content meets the requirement
                 if (!strcmp(task_name, cur_task_name))
-                    printf("PID:  %s", ptr->d_name);
+                    return strToInt(ptr->d_name);
 
                 fclose(fp);
             }
         } closedir(dir);//Shut down the path
-    }
+    } return 0;
 }
 
 int main()
 {
-    char task_name[] = "clion.sh";
+    char task_name[] = "clion64.exe";
 
-    printf("task name is %s\n", task_name);
+    printf("task name is %s", task_name);
     getPidByName(task_name);
 }
