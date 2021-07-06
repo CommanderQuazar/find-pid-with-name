@@ -1,5 +1,5 @@
 //
-// Created by Tobey Ragain (Commander_Quazar) on 7/4/2021
+// Created by Tobey Ragain (CommanderQuazar) on 7/4/2021
 //
 
 /*
